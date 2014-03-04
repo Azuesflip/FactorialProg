@@ -13,35 +13,55 @@ public class FactorialProg
     
     public static void main(String[] args) 
     {
+        
         int inputNum;
-        int outputNum = 1;
+        int outputNum;
         Scanner in = new Scanner(System.in);
+        Boolean run = true;
+        String go = "y";
         
-        System.out.println("Enter a real number you wish to get the factorial "
-                + "solution of.");
         
-        inputNum = in.nextInt();
-        
-        if (inputNum > 0)
+        while (run)
         {
-            for (int i = inputNum; i > 0; i--)
+            outputNum = 1;
+            while (true)
             {
-                outputNum = outputNum * i;
-            }
-        }
-        else if (inputNum < 0)
-        {
-            for (int i = inputNum; i < 0; i++)
-            {
-                outputNum = outputNum * i;
-            }
-        }
-        else
-        {
-            outputNum = 0;
-        }
+                System.out.println("Enter a real number you wish to get the factorial "
+                        + "solution of.");
+            
+                inputNum = in.nextInt();
         
-        System.out.println("The solution is: " + outputNum);
+                if (inputNum > 0)
+                {
+                    for (int i = inputNum; i > 0; i--)
+                    {
+                        outputNum = outputNum * i;
+                    }
+                    break;
+                }
+                else if (inputNum < 0)
+                {
+                    for (int i = inputNum; i < 0; i++)
+                    {
+                        outputNum = outputNum * i;
+                    }
+                    break;
+                }
+                else
+                {
+                    outputNum = 0;
+                    break;
+                }
+        
+            }
+            System.out.print("The solution is: " + outputNum + "\n");
+        
+            System.out.println("Would you like to do another? Enter y or n");
+            
+            go = in.next();
+            go = go.toLowerCase();
+            run = "y".equals(go);
+        }
     }
     
 }
